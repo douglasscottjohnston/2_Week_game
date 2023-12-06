@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0l5u2gvye68"]
+
+[ext_resource type="PackedScene" uid="uid://cjywns5kyljuv" path="res://enemies/Enemy.tscn" id="1_xgcu2"]
+[ext_resource type="Texture2D" uid="uid://ccrd603m6fg2l" path="res://body.png" id="2_j2f7g"]
+
+[node name="Brick" instance=ExtResource("1_xgcu2")]
+collision_mask = 0
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_j2f7g")

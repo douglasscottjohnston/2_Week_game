@@ -1,0 +1,127 @@
+[gd_scene load_steps=14 format=3 uid="uid://lsgxwter2grd"]
+
+[ext_resource type="PackedScene" uid="uid://cs3xt5co6hn0i" path="res://main/ui/controls/quitbutton/QuitButton.tscn" id="1_4fji7"]
+[ext_resource type="Texture2D" uid="uid://e5k17vqpasuv" path="res://main/ui/mainmenu/play.png" id="1_li8y4"]
+[ext_resource type="Script" path="res://main/ui/mainmenu/MainMenu.gd" id="1_nyl7j"]
+[ext_resource type="Texture2D" uid="uid://6dxn8vpksxkv" path="res://main/ui/mainmenu/playpressed.png" id="2_hg55d"]
+[ext_resource type="Texture2D" uid="uid://delvrnrvv0uh4" path="res://main/ui/mainmenu/geospace.png" id="2_yv484"]
+[ext_resource type="Texture2D" uid="uid://dywws3lpdaeap" path="res://main/player/Player.png" id="3_toae4"]
+[ext_resource type="Texture2D" uid="uid://bcvdfrdjtd6rs" path="res://main/ui/mainmenu/playhover.png" id="3_ydgr7"]
+[ext_resource type="Texture2D" uid="uid://dybulv34gqiqq" path="res://main/ui/mainmenu/Tutorial.png" id="4_2ggmv"]
+[ext_resource type="PackedScene" uid="uid://df7fpehgo8ksa" path="res://main/player/PlayerTrail.tscn" id="4_4twhi"]
+[ext_resource type="Texture2D" uid="uid://dbfste8mnknk1" path="res://main/ui/mainmenu/whiteparticle.png" id="5_s3m87"]
+[ext_resource type="Texture2D" uid="uid://boyftdwbgmlfo" path="res://main/ui/mainmenu/Tutorialpressed.png" id="5_uqmv3"]
+[ext_resource type="Texture2D" uid="uid://cfgx07ckiaghw" path="res://main/ui/mainmenu/Tutorialhover.png" id="6_1ubwp"]
+[ext_resource type="Material" uid="uid://84tvfrph586a" path="res://invert_material.tres" id="8_jfeho"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_nyl7j")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -300.0
+offset_right = 597.0
+offset_bottom = 300.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayButton" type="TextureButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_li8y4")
+texture_pressed = ExtResource("2_hg55d")
+texture_hover = ExtResource("3_ydgr7")
+
+[node name="TutorialButton" type="TextureButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_2ggmv")
+texture_pressed = ExtResource("5_uqmv3")
+texture_hover = ExtResource("6_1ubwp")
+
+[node name="QuitButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_4fji7")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_right = 500.0
+offset_bottom = 540.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 500
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_yv484")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CenterContainer2"]
+position = Vector2(960, -720)
+amount = 16
+lifetime = 3.0
+texture = ExtResource("5_s3m87")
+emission_shape = 3
+emission_rect_extents = Vector2(1280, 720)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("8_jfeho")
+layout_mode = 2
+offset_left = 1234.0
+offset_top = 344.0
+offset_right = 1714.0
+offset_bottom = 1424.0
+rotation = 1.11906
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_toae4")
+
+[node name="PlayerTrail" parent="TextureRect" instance=ExtResource("4_4twhi")]
+position = Vector2(207.575, 1105.58)
+amount = 13
+texture = ExtResource("5_s3m87")
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]

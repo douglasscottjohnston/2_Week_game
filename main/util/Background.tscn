@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c51d4fvio50mt"]
+
+[ext_resource type="Texture2D" uid="uid://edc5bx60c5vs" path="res://space.jpg" id="1_4dbve"]
+[ext_resource type="Script" path="res://main/util/Background.gd" id="1_xvloc"]
+
+[node name="Background" type="ParallaxBackground"]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+scroll_offset = Vector2(0, 1)
+scroll_base_offset = Vector2(0, 1)
+scroll_base_scale = Vector2(0, 1)
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_xvloc")
+camera_velocity = Vector2(0, 500)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_mirroring = Vector2(0, 1440)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1168, 656)
+texture = ExtResource("1_4dbve")

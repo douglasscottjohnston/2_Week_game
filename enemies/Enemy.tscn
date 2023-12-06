@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjywns5kyljuv"]
+
+[ext_resource type="Script" path="res://enemies/Enemy.gd" id="1_d0klt"]
+[ext_resource type="AudioStream" uid="uid://2m8n60pe45" path="res://enemies/enemy_brick/brick.wav" id="2_omb84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxf24"]
+size = Vector2(48, 48)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 8
+mass = 0.1
+gravity_scale = 0.1
+linear_velocity = Vector2(0, 100)
+script = ExtResource("1_d0klt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hxf24")
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 4
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = 50.0
+angular_velocity_max = 100.0
+orbit_velocity_max = 1.0
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_omb84")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

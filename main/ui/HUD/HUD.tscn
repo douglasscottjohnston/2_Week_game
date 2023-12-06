@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dopri5blh86xm"]
+
+[ext_resource type="Script" path="res://main/ui/HUD/HUD.gd" id="1_eaojw"]
+[ext_resource type="Shader" path="res://main/player/invert.gdshader" id="1_vk7p0"]
+[ext_resource type="Texture2D" uid="uid://dywws3lpdaeap" path="res://main/player/Player.png" id="2_rcjpb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kg540"]
+shader = ExtResource("1_vk7p0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1b55y"]
+shader = ExtResource("1_vk7p0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dsfi"]
+shader = ExtResource("1_vk7p0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn5hb"]
+shader = ExtResource("1_vk7p0")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_eaojw")
+
+[node name="Score" type="Label" parent="."]
+material = SubResource("ShaderMaterial_kg540")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 91.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1024.0
+offset_bottom = 1074.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Life1" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_1b55y")
+layout_mode = 2
+texture = ExtResource("2_rcjpb")
+
+[node name="Life2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_4dsfi")
+layout_mode = 2
+texture = ExtResource("2_rcjpb")
+
+[node name="Life3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_rn5hb")
+layout_mode = 2
+texture = ExtResource("2_rcjpb")

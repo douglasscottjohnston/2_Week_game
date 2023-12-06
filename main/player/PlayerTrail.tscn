@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://df7fpehgo8ksa"]
+
+[ext_resource type="Material" uid="uid://cvfjx6h7oduu0" path="res://main/player/PlayerTrail.tres" id="1_hdc5i"]
+[ext_resource type="Texture2D" uid="uid://b3uf5bvo8kb5f" path="res://main/player/whiteparticle.png" id="2_2pwnx"]
+
+[node name="PlayerTrail" type="CPUParticles2D"]
+show_behind_parent = true
+material = ExtResource("1_hdc5i")
+position = Vector2(0.00217199, 600)
+rotation = -1.5708
+scale = Vector2(10, 10)
+lifetime = 0.1
+texture = ExtResource("2_2pwnx")
+emission_shape = 2
+emission_sphere_radius = 15.0
+direction = Vector2(1, 1)
+spread = 180.0

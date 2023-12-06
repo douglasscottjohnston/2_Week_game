@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://dincxq4kit31q"]
+
+[ext_resource type="Script" path="res://main/player/target/Target.gd" id="1_7nh1h"]
+[ext_resource type="Shader" path="res://main/player/invert.gdshader" id="1_mnikn"]
+[ext_resource type="Texture2D" uid="uid://i7aad8fab8x5" path="res://main/player/target/Target.png" id="2_thjf0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcxm0"]
+shader = ExtResource("1_mnikn")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tf4xv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38alh"]
+shader = ExtResource("1_mnikn")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_obo4j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnem7"]
+shader = ExtResource("1_mnikn")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_njteg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pke8f"]
+shader = ExtResource("1_mnikn")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r0802"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivivx"]
+
+[node name="Target" type="Marker2D"]
+script = ExtResource("1_7nh1h")
+
+[node name="Top" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pcxm0")
+position = Vector2(-0.0466475, -8.37459)
+scale = Vector2(4.92907, 12.061)
+texture = SubResource("CanvasTexture_tf4xv")
+
+[node name="Bottom" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_38alh")
+position = Vector2(-0.0416216, 8.57054)
+scale = Vector2(4.93896, 12.0494)
+texture = SubResource("CanvasTexture_obo4j")
+
+[node name="Left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vnem7")
+position = Vector2(-8.52971, 0.104962)
+scale = Vector2(12.0571, 4.89697)
+texture = SubResource("CanvasTexture_njteg")
+
+[node name="Right" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pke8f")
+position = Vector2(8.43008, 0.106866)
+scale = Vector2(12.0463, 4.90546)
+texture = SubResource("CanvasTexture_r0802")
+
+[node name="Base" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ivivx")
+position = Vector2(6, 6)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_thjf0")

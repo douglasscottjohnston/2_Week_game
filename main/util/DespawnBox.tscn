@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccf30227yq2ji"]
+
+[ext_resource type="Script" path="res://main/util/DespawnBox.gd" id="1_ab6pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jequn"]
+size = Vector2(2658, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjem6"]
+size = Vector2(201, 1642)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng1jx"]
+size = Vector2(196.25, 1578)
+
+[node name="DespawnBoundry" type="Area2D"]
+collision_mask = 4294967292
+script = ExtResource("1_ab6pc")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(978, 1271)
+shape = SubResource("RectangleShape2D_jequn")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+position = Vector2(-214, 481)
+shape = SubResource("RectangleShape2D_sjem6")
+
+[node name="Right" type="CollisionShape2D" parent="."]
+position = Vector2(2201, 479)
+shape = SubResource("RectangleShape2D_ng1jx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
