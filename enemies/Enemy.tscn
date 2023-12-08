@@ -8,9 +8,8 @@ size = Vector2(48, 48)
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 8
-mass = 0.1
-gravity_scale = 0.1
-linear_velocity = Vector2(0, 100)
+mass = 0.01
+linear_velocity = Vector2(0, 2000)
 script = ExtResource("1_d0klt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

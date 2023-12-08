@@ -1,15 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu0gc6dcyd6p0"]
+[gd_scene load_steps=10 format=3 uid="uid://bu0gc6dcyd6p0"]
 
 [ext_resource type="Script" path="res://main/ui/gameover/GameOver.gd" id="1_x24q7"]
 [ext_resource type="Texture2D" uid="uid://cm8yw5l71mhy8" path="res://main/ui/gameover/gameover.png" id="2_e65r4"]
-[ext_resource type="Shader" path="res://main/player/invert.gdshader" id="2_mur12"]
 [ext_resource type="Texture2D" uid="uid://bau6s2cnj3srq" path="res://main/ui/gameover/retry.png" id="3_kwmtx"]
 [ext_resource type="Texture2D" uid="uid://dyxnam0g244x6" path="res://main/ui/gameover/retry_pressed.png" id="4_rw8vf"]
 [ext_resource type="Texture2D" uid="uid://c1v261aait5o" path="res://main/ui/gameover/retry_hover.png" id="5_bqv4u"]
 [ext_resource type="PackedScene" uid="uid://cs3xt5co6hn0i" path="res://main/ui/controls/quitbutton/QuitButton.tscn" id="6_irbh4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_egohn"]
-shader = ExtResource("2_mur12")
 
 [sub_resource type="Animation" id="Animation_kex7u"]
 length = 0.001
@@ -84,14 +80,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer"]
-material = SubResource("ShaderMaterial_egohn")
 layout_mode = 2
 texture = ExtResource("2_e65r4")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtj7lumyckq8p"]
+[gd_scene load_steps=16 format=3 uid="uid://dtj7lumyckq8p"]
 
 [ext_resource type="Script" path="res://main/player/Player.gd" id="1_2jx2b"]
 [ext_resource type="PackedScene" uid="uid://bseb0kmwt450e" path="res://main/player/Projectile.tscn" id="2_me784"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dincxq4kit31q" path="res://main/player/target/Target.tscn" id="10_bb3yk"]
 [ext_resource type="PackedScene" uid="uid://bmwiexgw8or3m" path="res://main/ui/pausemenu/PauseMenu.tscn" id="11_suxh4"]
 [ext_resource type="PackedScene" uid="uid://dopri5blh86xm" path="res://main/ui/HUD/HUD.tscn" id="12_3bse0"]
+[ext_resource type="PackedScene" uid="uid://b17lg2qn4bd0f" path="res://main/ui/youwin/YouWin.tscn" id="14_0bmxd"]
 [ext_resource type="PackedScene" uid="uid://bu0gc6dcyd6p0" path="res://main/ui/gameover/GameOver.tscn" id="14_44xmn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rp8iu"]
@@ -91,7 +92,10 @@ layer = 0
 
 [node name="GameOver" parent="." instance=ExtResource("14_44xmn")]
 
+[node name="YouWin" parent="." instance=ExtResource("14_0bmxd")]
+
 [node name="PauseMenu" parent="." instance=ExtResource("11_suxh4")]
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="FlickerTimer" to="." method="_on_flicker_timer_timeout"]
+[connection signal="win_animation_done" from="YouWin" to="." method="_on_you_win_win_animation_done"]

@@ -12,14 +12,3 @@ void fragment() {
     	// Asign the original alpha value.
     	COLOR.a = texture(TEXTURE, UV).a;
     }
-
-//void fragment() {
-//	vec4 color = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgba ;
-//
-//	if(color.a > 0.5) {
-//		color.r = 1.0 - color.r;
-//		color.g = 1.0 - color.g;
-//		color.b = 1.0 - color.b;
-//	}
-//	COLOR.rgba = color;
-//}

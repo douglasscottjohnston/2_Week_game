@@ -7,11 +7,12 @@ extends RigidBody2D
 func _ready():
 	gravity_scale = Gravity.gravity_scale
 	mass = Gravity.mass
+	linear_velocity = Gravity.linear_velocity
 
 
 func hit():
-	# need to do this so the partilce effect will play
 	Score.score += points
+	# need to do this so the partilce effect will play
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.visible = false
 	$DeathParticles.restart()

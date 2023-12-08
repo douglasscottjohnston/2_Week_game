@@ -13,7 +13,6 @@ func pause():
 	
 
 func unpause():
-	print("unpause")
 	$AnimationPlayer.play("unpause")
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN

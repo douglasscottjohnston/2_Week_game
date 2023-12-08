@@ -5,7 +5,9 @@ extends CharacterBody2D
 @export var lives = 3
 @export var is_alive = true
 @export var enemy_collision_masks = [4]
+@export var win_collision_mask = 6
 var invincible = false
+var input_is_enabled = true
 signal player_death
 
 
@@ -34,14 +36,14 @@ func _on_invincibility_timer_timeout():
 	$PlayerSprite.visible = true
 	set_enemy_collision(true)
 
-func _on_win_area_win():
-	print("you win")
 
+func _on_you_win_win_animation_done():
+	get_tree().change_scene_to_file(Levels.next())
 
 #Custom
 
 func get_input():
-	if is_alive:
+	if is_alive and input_is_enabled:
 		look_at(get_global_mouse_position())
 		if Input.is_action_just_released("shoot"):
 			$ShootCooldownTimer.stop()
@@ -91,7 +93,9 @@ func die():
 	
 
 func win():
-	print("you won")
+	input_is_enabled = false
+	set_collision_mask_value(win_collision_mask, false)
+	$YouWin.start_animation()
 
 
 func shoot():
@@ -118,4 +122,6 @@ func set_enemy_collision(is_colliding):
 
 func is_player():
 	return true
+
+
 

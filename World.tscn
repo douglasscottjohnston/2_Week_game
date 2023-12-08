@@ -15,7 +15,7 @@ position = Vector2(967, 996)
 rotation = -1.5708
 
 [node name="WinArea" parent="." instance=ExtResource("7_7cni6")]
-position = Vector2(75, 452)
+position = Vector2(939, -3515)
 
 [node name="WorldBoundry" parent="." instance=ExtResource("1_eig3s")]
 
@@ -38,5 +38,3 @@ scale = Vector2(0.8, 0.8)
 transform = Transform2D(0.8, 0, 0, 0.8, 0, 0)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
-
-[connection signal="win" from="WinArea" to="Player" method="_on_win_area_win"]

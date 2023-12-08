@@ -7,7 +7,6 @@ func _process(_delta):
 
 func set_life_visibility(life : int, visibility : bool):
 	_get_life(life).visible = visibility
-	print("life" + str(life) + " invisible")
 
 
 func _get_life(life : int) -> TextureRect:
